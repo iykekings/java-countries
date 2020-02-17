@@ -18,29 +18,26 @@ public class NameController {
     }
 
     @GetMapping(path = "/all")
-    public List<String> getAllCountries() {
+    public List<Country> getAllCountries() {
         return countries.stream()
-                .map(Country::getName)
-                .sorted()
+                .sorted((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()))
                 .collect(Collectors.toList());
     }
 
     @GetMapping(path = "/start/{letter}")
-    public List<String> getAllCountriesStartingWithLetter(@PathVariable("letter") char letter) {
+    public List<Country> getAllCountriesStartingWithLetter(@PathVariable("letter") char letter) {
         return countries.stream()
                 .filter(country ->
                         Character.toLowerCase(letter) == country.getName().toLowerCase().charAt(0))
-                .map(Country::getName)
-                .sorted()
+                .sorted((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()))
                 .collect(Collectors.toList());
     }
 
     @GetMapping(path = "/size/{number}")
-    public List<String> getCountriesWithLength(@PathVariable("number") int number) {
+    public List<Country> getCountriesWithLength(@PathVariable("number") int number) {
         return countries.stream()
                 .filter(country -> number <= country.getName().length())
-                .map(Country::getName)
-                .sorted()
+                .sorted((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()))
                 .collect(Collectors.toList());
     }
 }

@@ -21,11 +21,10 @@ public class PopulationController {
 //    * /population/size/{people}
 //      * return the countries that have a population equal to or greater than the given population
     @GetMapping("size/{people}")
-    public List<String> getAllCountriesWithSize(@PathVariable("people") int people) {
+    public List<Country> getAllCountriesWithSize(@PathVariable("people") int people) {
         return countries.stream()
                 .filter(country -> country.getPopulation() >= people)
-                .map(Country::getName)
-                .sorted()
+                .sorted((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()))
                 .collect(Collectors.toList());
     }
 //    * /population/min

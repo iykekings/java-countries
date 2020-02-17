@@ -6,7 +6,6 @@ import java.util.List;
 public class CountryList {
     final static List<Country> countryList = List.of(
             new Country("China", 1420062022, 9388211, 39),
-            new Country("China", 1420062022, 9388211, 39),
             new Country("India", 1368737513, 2973190, 28),
             new Country("U.S.", 329093110, 9147420, 38),
             new Country("Indonesia", 269536482, 1811570, 29),
