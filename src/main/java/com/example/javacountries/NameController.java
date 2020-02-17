@@ -42,6 +42,5 @@ public class NameController {
                 .map(Country::getName)
                 .sorted()
                 .collect(Collectors.toList());
-
     }
 }
