@@ -41,7 +41,7 @@ The countries of the world have many different defining attributes including lan
       * /population/median
       * return the country with the median population
 
-    * /age/age/{age}
+    * /age/{age}
       * return the countries that have a median age equal to or greater than the given age
     * /age/min
       * return the country with the smallest median age
